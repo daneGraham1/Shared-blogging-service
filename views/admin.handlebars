@@ -1,0 +1,74 @@
+<div class="container">
+
+    <div class="flex-row">
+        <div class="top-flex-admin">
+            <div class="avatar-box justify-start">
+                {{#if avatar}} <img src="{{avatar.file}}" width="50" class="d-block m-auto">
+                {{/if}}
+                <span class="">&ensp;<strong>Hi, {{user.fname}}! </strong></span>
+            </div>
+            <div class="home-txt">
+                <p>Welcome to your profile page <br>
+                    You can view, create, edit and delete your blog posts.</p>
+            </div>
+            <div class="justify-end">
+                <button class="send-btn"><a href="./editAccount">Edit account</a></button>
+            </div>
+        </div>
+    </div>
+
+    {{#each posts}}
+
+    <div class="card flex-col">
+        <div class="flex-row">
+            <div class="card-title">
+                <h2>{{this.title}}</h2>
+            </div>
+            <div class="card-date">
+                <p class="card-date">{{this.datTime}}</p>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <p>{{{this.content}}}</p>
+        </div>
+        <div class="card-comments" id="commentsDiv">
+            <table class="table" id="commentsTable-{{id}}"></table>
+            <button class="showCommentsBtn" postId="{{id}}">Show Comments</button>
+        </div>
+        <div class="form-div">
+            <form action="./submitComment" method="POST">
+                <div>
+                    <label for="hiddentpostId">Post Id: {{id}}</label>
+                    <input type="hidden" name="postId" id="hiddenPostId-{{id}}">
+                    <label for="txtComment">Comment:</label>
+                    <input class="commentText" type="text" name="comment" id="txtComment-{{id}}" postId="{{id}}">
+                </div>
+                <div class="form-button">
+
+                    <button class="send-btn postCommentBtn" type="submit" postId="{{id}}">Post</button>
+                </div>
+            </form>
+        </div>
+        <div class="form-div">
+            <form class="form-deletePost" action="./deletePost" method="POST">
+                <div>
+                    <input type="hidden" name="postId" id="hiddenDeletePostId-{{id}}">
+
+                    {{!-- <div class="flex-row justify-sb align-center"> --}}
+                        <button class="send-btn deletePostBtn" type="submit" postId="{{id}}">Delete post</button>
+                    </div>
+            </form>
+        </div>
+        </div>
+        
+    </div>
+        {{/each}}
+         <div>
+            <form class="form-editPost" action="./admin" method="POST">
+                <div>
+                    <input type="text" name="postId">
+                        <button class="send-btn" type="submit">Update post</button>
+                    </div>
+            </form>
+            </div>

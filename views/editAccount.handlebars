@@ -1,0 +1,82 @@
+<div class="container">
+
+
+
+    <script src="/javascript/checkUsernamePw.js"></script>
+
+    <h1 class="form-title">Edit Account Details</h1>
+
+
+    <div class="form-div">
+
+        <form id="form-editAccount" action="./editAccount" method="POST">
+            <div>
+                <label for="txtUsername">New username:</label>
+                <input type="text" name="username" id="txtUsername" value="{{user.username}}" required>
+            </div>
+            <div>
+                <p id="usernameAlert"></p>
+
+        </div>
+        <div>
+            <label for="txtPassword">Password:</label>
+            <input type="password" name="password" id="txtPassword" required>
+        </div>
+
+
+            <div>
+                <label for="txtConfirmPassword">Confirm password:</label>
+                <input type="password" name="confirmPassword" id="txtConfirmPassword">
+            </div>
+            <div>
+                <p id="passwordAlert"></p>
+            </div>
+            <div>
+                <label for="txtfname">First name:</label>
+                <input type="text" name="fname" id="txtfname" value="{{user.fname}}" required>
+            </div>
+
+            <div>
+                <label for="txtlname">Last name:</label>
+                <input type="text" name="lname" id="txtlname" value="{{user.lname}}" required>
+            </div>
+            <div class="">
+                <div class="padx30 padb">
+                    <label for="txtDoB">Date of Birth:</label>
+                    <input type="date" name="doB" id="txtDoB" max="2010-01-01" value="{{user.doB}}" required>
+                </div>
+            </div>
+            <div class="padt">   
+                 {{!-- This works //Kim --}}
+                <textarea name="description" , rows="10" , cols="60" required>{{user.description}}</textarea> 
+            </div>
+
+
+            <div>
+                <p class="label">Choose an Avatar:</p>
+                <div id="displayAvatars" class="grid-3 justify-center align-center">
+                    {{#each allAvatars}}
+                    <div id="Avatar{{this.name}}" class="avatar">
+
+
+                        <label for="{{this.name}}" class="img-label"><img src="{{this.file}}" alt="{{this.name}}"
+                                width="70"><span class="img-label"> &ensp;{{this.name}}&ensp;
+                                <input type="radio" name="avatar" value="{{this.name}}"
+                                    id="{{this.name}}"></span></label>
+                    </div>
+                    {{/each}}
+
+
+                </div>
+            </div>
+            <div class="form-button">
+                <button class="send-btn" type="submit">Update account details</button>
+            </div>
+            <br>
+            <hr><br>
+            <button class="send-btn"><a class="metalgear4" href="./deleteAccount">Delete account</a></button>
+
+        </form>
+    </div>
+
+</div>

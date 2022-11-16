@@ -1,0 +1,15 @@
+ <form id="form-editPost" action="/updatePost" method="POST" enctype="multipart/form-data">
+        <h2 class="form-title">Update post</h2>
+            <div class="flex-col mb">
+                <label for="test">Title:</label>
+                <input type="text" name="title" id="test" value="{{post.title}}">
+            </div>
+            
+            <div class="flex-col mb">
+                <textarea id="updatePost-tinymce-app" type="file" name="content">{{post.content}}</textarea>
+            </div>
+
+            <div class="flex-col mb">
+                <button class="send-btn" type="submit">Submit updated post</button>
+            </div>
+        </form>

@@ -1,0 +1,182 @@
+/* Flex */
+/*****************************************************************/
+.flex-col, .flex-row {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-se {
+    justify-content: space-evenly;
+}
+
+.justify-sa {
+    justify-content: space-around;
+}
+
+.justify-sb {
+    justify-content: space-between;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+.align-self-stretch {
+    align-self: stretch;
+}
+/*****************************************************************/
+
+
+/* Grid */
+/*****************************************************************/
+.grid-3 {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.grid-2{
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+/*****************************************************************/
+
+
+/* Misc */
+/*****************************************************************/
+.d-block {
+    display: block;
+}
+
+.p-absolute {
+    position: absolute;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-end {
+    text-align: end;
+}
+
+.mt {
+    margin-top: 10px;
+}
+
+.mb {
+    margin-bottom: 10px;
+}
+
+.ml {
+    margin-left: 10px;
+}
+
+.mr {
+    margin-right: 10px;
+}
+
+.m {
+    margin: 10px;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
+.m-auto {
+    margin: auto;
+}
+
+.p-0 {
+padding: 0px;
+}
+
+.padt {
+    padding-top: 10px;
+}
+
+.padt30 {
+    padding-top: 30px;
+}
+
+.padb {
+    padding-bottom: 10px;
+}
+
+.padl {
+    padding-left: 10px;
+}
+
+.padr {
+    padding-right: 10px;
+}
+
+.pad {
+    padding: 10px;
+}
+
+.padx30 {
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.bdr {
+    border: 1px black solid;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.bolder {
+    font-weight: bolder;
+}
+
+.shdw-top {
+    border: 1px solid var(--card-shadow-color);
+    /* box-shadow: 0 0 1px 1px var(--card-shadow-color); */
+}
+

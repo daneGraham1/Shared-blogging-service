@@ -1,0 +1,77 @@
+<div class="container">
+
+    {{!-- {{#if toastMessage}}
+    <p>{{toastMessage}}</p>
+    {{/if}} --}}
+
+    <script src="/javascript/checkUsernamePw.js"></script>
+
+    <h1 class="form-title">Create Account</h1>
+
+
+    <div class="form-div">
+
+        <form action="./createaccount" method="POST">
+            <div class="">
+                <label for="txtUsername">Username:</label>
+                <input type="text" name="username" id="txtUsername" required>
+            </div>
+            <div class="">
+                <p id="usernameAlert" class="hidden"></p>
+            </div>
+            <div>
+                <label for="txtPassword">Password:</label>
+                <input type="password" name="password" id="txtPassword" required>
+            </div>
+
+            <div>
+                <label for="txtConfirmPassword">Confirm password:</label>
+                <input type="password" name="confirmPassword" id="txtConfirmPassword">
+            </div>
+            <div>
+                <p id="passwordAlert"></p>
+            </div>
+            <div class="flex-row justify-sa">
+                <div class="">
+                    <label for="txtfName">First Name:</label>
+                    <input type="text" name="fname" id="txtfName" required>
+                </div>
+                <div class="">
+                    <label for="txtlName">Last Name:</label>
+                    <input type="text" name="lname" id="txtlName" required>
+                </div>
+                {{!-- changed: added doB --}}
+            </div>
+            <div class="">
+                <div class="padx30">
+                    <label for="txtDoB">Date of Birth:</label>
+                    <input type="date" name="doB" id="txtDoB" max="2010-01-01" required>
+                </div>
+            </div>
+
+            <div>
+                <label for="txtDescription">Description:</label>
+                <input type="text" name="description" id="txtDescription" placeholder="Tell us a bit about yourself..."
+                    required>
+            </div>
+
+            <div>
+                <p class="label">Choose an Avatar:</p>
+                <div id="displayAvatars" class="grid-3 justify-center align-center">
+                    {{#each allAvatars}}
+                    <div id="Avatar{{this.name}}" class="avatar">
+                        <label for="{{this.name}}" class="img-label"><img src="{{this.file}}" alt="{{this.name}}"
+                                width="70"><span class="img-label"> &ensp;{{this.name}}&ensp;
+                                <input type="radio" name="avatar" value="{{this.name}}"
+                                    id="{{this.name}}"></span></label>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+            
+            <button class="send-btn justify-center" type="submit" id="submit">Create account</button>
+
+        </form>
+    </div>
+</div>

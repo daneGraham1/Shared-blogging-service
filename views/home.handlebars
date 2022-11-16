@@ -1,0 +1,122 @@
+<div class="container">
+
+    <div class="grid-main ">
+        <div class="avatar-box flex-col">
+            {{#if user}}
+            {{#if avatar}} <img src="{{avatar.file}}" width="50" class="d-block m-auto">
+            {{/if}}
+
+            <span class="">&ensp;<strong>Hi, {{user.fname}}! </strong></span>
+            <br>
+            <button class="send-btn"><a class="metalgear4" href="./admin">View your posts</a></button>
+            {{/if}}
+        </div>
+
+        <div class="home-txt">
+            <h1>Hardy Herons Travel</h1>
+            <p>Herons travel and so should you! This is a place for everyone to share their travel stories and tips or
+                just
+                chat about their favourite locations.</p>
+        </div>
+        <div class="box-right">
+            {{#if user}}
+            <button class="metalgear2"><a class="metalgear3" href="#form-newPost">Make a new post</a></button>
+            {{/if}}
+        </div>
+
+    </div>
+    <div class="flex-col">
+        <img src="./images/layout-images/20200929_191753_cropped.jpg" class="bkgrdImg m-0 p-0">
+        <div class="padt30">
+            <h3 class="home-txt">Recent Blog Posts</h3>
+        </div>
+    </div>
+    <div class="grid-main">
+
+        {{!-- Going to try an accordion type display --}}
+        <div class="sidebar"></div>
+
+        <div class="flex-col">
+
+            {{#each allPosts}}
+            <div class="flex-col">
+                <button class="accordion flex-row justify-sb">
+                    <span class="bolder">{{this.title}}</span>
+                    <div class="flex-row">
+                        <div class="datTime">
+                            <span>{{this.fname}} {{this.lname}}&nbsp;</span>
+                            <span>{{this.datTime}}&nbsp;</span>
+                        </div>
+                        <img class="accordion-btn-imgAP" src="./images/layout-images/plus-solid.svg" width="10">
+                    </div>
+                </button>
+                <div class="panel">
+                    <p>{{{this.content}}}</p>
+                    {{!-- show comments --}}
+
+                    <button class="showCommentsBtn" postId="{{postId}}">Show Comments</button>
+                    <div class="card-comments" id="commentsDiv">
+                        <table class="table table-striped" id="commentsTable-{{postId}}"></table>
+                    </div>
+                    <div class="form-div">
+                        <form action="./submitComment" method="POST">
+                            <div>
+                                <input type="hidden" name="postId" id="hiddenPostId-{{postId}}">
+                                <label for="txtComment">Comment:</label>
+                                <input class="commentText" type="text" name="comment" id="txtComment-{{postId}}"
+                                    postId="{{postId}}">
+                            </div>
+                            <div class="form-button">
+                                <button class="send-btn postCommentBtn" type="submit" postId="{{postId}}">Post</button>
+                            </div>
+                        </form>
+                    </div>
+                    {{!-- {{/if}} --}}
+                </div>
+
+            </div>
+
+            {{/each}}
+
+
+        </div>
+        <div class="sidebar">
+        </div>
+    </div>
+
+
+
+    {{!-- SUBMIT POST --}}
+
+    {{#if user}}
+    <div>
+        <div class="flex-row justify-se">
+            <div class="flex-row form-newPostBackground">
+
+                <form id="form-newPost" class="justify-start align-top" action="/submitPost" method="POST"
+                    enctype="multipart/form-data">
+                    <h2 class="form-title">Create new post</h2>
+
+                    <div class="flex-col mb">
+                        <label for="test">Title:</label>
+                        <input type="text" name="title" id="test">
+                    </div>
+
+                    <div class="flex-col mb">
+                        <textarea id="submitPost-tinymce-app" type="file" name="content"></textarea>
+                    </div>
+
+                    <div class="flex-col mb">
+                        <button class="send-btn" id="lulu" type="submit">Submit post</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+    {{/if}}
+
+
+
+</div>
